@@ -2,5 +2,31 @@
 
   <div class="starter-template">
     <h1>Home Page</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    <p class="lead">This is your home page.<br>Contents of this page are coming from component <b>./angular-client/src/app/app.component.html</b><br> You can make your dashboard here.</p>
+<hr>
+    <h2>Latest Todos</h2>
+
+    <div class="latestTodos">
+  <div class="row">
+      <!-- Boxes  -->
+    <div *ngFor="let todo of todos" class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="box">
+      <div class="icon">
+        <div class="image"><i class="fa fa-tasks"></i></div>
+        <div class="info">
+          <h3 class="title">{{todo.todoText}}</h3>
+
+          <div class="more">
+            <a  [routerLink]="['/todo', todo._id]" title="Click to Open {{todo.todoText}}">
+              Read More <i class="fa fa-angle-double-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="space"></div>
+    </div>
+  </div>
+
+  </div>
+  </div>
   </div>

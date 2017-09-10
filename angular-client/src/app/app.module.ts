@@ -1,10 +1,13 @@
+// ./angular-client/src/app/app.module.ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { TodoService } from './todo/todo.service';
 
 @NgModule({
   declarations: [
@@ -13,9 +16,10 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ TodoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
