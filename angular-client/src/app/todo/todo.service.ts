@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TodoService {
-  private apiUrl = 'http://localhost:3001/api';
+  private apiUrl = 'http://localhost:3001/api/';
   constructor(private http: Http){ }
 
   getTodos(): Promise<any>{
@@ -14,6 +14,13 @@ export class TodoService {
                  .toPromise()
                  .then(this.handleData)
                  .catch(this.handleError)
+  }
+
+  getTodo(id:string): Promise<any>{
+    return this.http.get(this.apiUrl + id)
+                    .toPromise()
+                    .then(this.handleData)
+                    .catch(this.handleError)
   }
 
   private handleData(res: any) {

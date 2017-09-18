@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { TodoRoutingModule } from './todo/todo-routing/todo-routing.module';
 import { TodoService } from './todo/todo.service';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import { TodoDetailComponent } from './todo/todo-detail/todo-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoDetailComponent
   ],
   imports: [
     BrowserModule,

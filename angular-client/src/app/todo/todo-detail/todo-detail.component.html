@@ -1,0 +1,11 @@
+<div align="center">
+<h4>Todo Detail</h4>
+<div *ngIf="todo">
+<h3>{{todo.todoText}}</h3>
+<p>Description: {{todo.todoDesc}}</p>
+<button (click)="goBack()" type="button" class="btn btn-danger">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        Go Back
+      </button>
+</div>
+</div>
