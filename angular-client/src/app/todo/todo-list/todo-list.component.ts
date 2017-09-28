@@ -10,9 +10,11 @@ import { TodoService } from '../todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos:any[] = [];
+
   constructor(private todoService:TodoService) { }
 
   ngOnInit(): void {
+    this.todoService.showAddTodoBox = true;
     this.todoService.getTodos()
                     .then(td => this.todos = td.todos )
   }

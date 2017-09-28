@@ -1,3 +1,19 @@
+<div align="center" class="AddTodoBox" [hidden]="todoService.showAddTodoBox">
+  <h4>Add New Todo</h4>
+  <form>
+  <div class="form-group">
+    <label for="todoText">Todo:</label>
+    <input type="text" class="form-control" name="todoText" id="todoText">
+  </div>
+  <div class="form-group">
+    <label for="todoDesc">Description:</label>
+    <textarea class="form-control" name="todoDesc" id="todoDesc"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success btn-block">Submit</button>
+</form>
+</div>
+
 <h2 align="center">Your Todo's List</h2>
 <table id="mytable" class="table table-bordred table-striped">
 

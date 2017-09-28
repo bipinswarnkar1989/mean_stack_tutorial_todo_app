@@ -14,6 +14,9 @@
         <li routerLinkActive="active"><a routerLink="/">Home</a></li>
         <li routerLinkActive="active"><a routerLink="/todos">Todos</a></li>
       </ul>
+      <ul *ngIf="routeUrl == todos" class="nav navbar-nav navbar-right">
+        <li><a (click)="showAddTodoBox($event)" href="#" >Add Todo</a></li>
+     </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>

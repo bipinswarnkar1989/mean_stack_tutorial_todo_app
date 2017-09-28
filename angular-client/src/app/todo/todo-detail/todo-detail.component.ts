@@ -13,6 +13,7 @@ import { TodoService } from '../todo.service';
 })
 export class TodoDetailComponent implements OnInit {
   todo:any[]=[];
+
   constructor(
     private todoService:TodoService,
     private route:ActivatedRoute,
@@ -28,5 +29,7 @@ export class TodoDetailComponent implements OnInit {
   goBack():void {
     this.location.back();
   }
+
+
 
 }

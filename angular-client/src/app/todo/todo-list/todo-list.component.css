@@ -1,0 +1,11 @@
+.AddTodoBox{
+  width: 50%;
+  margin: 20px auto;
+  border: 2px solid #EE6E73;
+  padding: 10px;
+}
+.AddTodoBox h4{
+  background-color: #EE6E73;
+  color: white;
+  padding: 5px;
+}
