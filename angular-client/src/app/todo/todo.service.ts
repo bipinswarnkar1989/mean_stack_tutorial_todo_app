@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class TodoService {
   private apiUrl = 'http://localhost:3001/api/';
   showAddTodoBox:boolean = true;
+  
   constructor(private http: Http){ }
 
   getTodos(): Promise<any>{
@@ -22,6 +23,13 @@ export class TodoService {
                     .toPromise()
                     .then(this.handleData)
                     .catch(this.handleError)
+  }
+
+  createTodo(todo:any): Promise<any>{
+    return this.http.post(this.apiUrl, todo)
+               .toPromise()
+               .then(this.handleData)
+               .catch(this.handleError)
   }
 
   private handleData(res: any) {

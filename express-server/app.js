@@ -1,7 +1,6 @@
 // ./express-server/app.js
 import express from 'express';
 import path from 'path';
-import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import SourceMapSupport from 'source-map-support';
@@ -13,7 +12,7 @@ import todoRoutes from './routes/todo.server.route';
 // define our app using express
 const app = express();
 
-// express-busboy to parse multipart/form-data
+// express-busboy to parse multipart/form-data and x-www-form-urlencoded both
 bb.extend(app);
 
 // allow-cors
@@ -26,8 +25,6 @@ app.use(function(req,res,next){
 
 // configure app
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 

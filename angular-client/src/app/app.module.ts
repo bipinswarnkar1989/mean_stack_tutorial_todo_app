@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule }    from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home.component';
@@ -23,7 +24,8 @@ import { TodoDetailComponent } from './todo/todo-detail/todo-detail.component';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    TodoRoutingModule
+    TodoRoutingModule,
+    FormsModule
   ],
   providers: [ TodoService ],
   bootstrap: [AppComponent]

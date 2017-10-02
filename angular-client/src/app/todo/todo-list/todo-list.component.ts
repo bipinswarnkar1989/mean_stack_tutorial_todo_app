@@ -10,6 +10,7 @@ import { TodoService } from '../todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos:any[] = [];
+  todo:any={};
 
   constructor(private todoService:TodoService) { }
 
@@ -17,6 +18,18 @@ export class TodoListComponent implements OnInit {
     this.todoService.showAddTodoBox = true;
     this.todoService.getTodos()
                     .then(td => this.todos = td.todos )
+  }
+
+  AddTodo(todo:any):void{
+    if(!todo){ return; }
+
+    //alert(JSON.stringify(todo));
+    this.todoService.createTodo(todo)
+                    .then(td => {
+                      console.log(td);
+                      this.todos.push(td.todo);
+                      this.todo = {};
+                    })
   }
 
 }
