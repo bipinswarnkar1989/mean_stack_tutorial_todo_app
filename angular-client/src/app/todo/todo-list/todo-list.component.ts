@@ -10,7 +10,8 @@ import { TodoService } from '../todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos:any[] = [];
-  todo:any={};
+  todo:any = {};
+  fetchingData:boolean = false;
 
   constructor(private todoService:TodoService) { }
 
@@ -22,13 +23,10 @@ export class TodoListComponent implements OnInit {
 
   AddTodo(todo:any):void{
     if(!todo){ return; }
-
-    //alert(JSON.stringify(todo));
     this.todoService.createTodo(todo)
                     .then(td => {
                       console.log(td);
                       this.todos.push(td.todo);
-                      this.todo = {};
                     })
   }
 

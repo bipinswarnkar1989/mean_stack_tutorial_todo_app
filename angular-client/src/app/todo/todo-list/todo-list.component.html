@@ -3,15 +3,19 @@
   <form (ngSubmit)="AddTodo(todo);todoForm.reset()" #todoForm="ngForm">
   <div class="form-group">
     <label for="todoText">Todo:</label>
-    <input type="text" [(ngModel)]="todo.todoText" #name="ngModel" class="form-control" name="todoText" id="todoText" required>
-    <div [hidden]="name.valid || name.pristine"
+    <input type="text" [(ngModel)]="todo.todoText" #todotext="ngModel" class="form-control" name="todoText" id="todoText" required />
+    <div [hidden]="todotext.valid || todotext.pristine"
          class="alert alert-danger">
       Todo is required
     </div>
   </div>
   <div class="form-group">
     <label for="todoDesc">Description:</label>
-    <textarea class="form-control" [(ngModel)]="todo.todoDesc" name="todoDesc" id="todoDesc" required></textarea>
+    <textarea class="form-control" [(ngModel)]="todo.todoDesc" #tododesc="ngModel" name="todoDesc" id="todoDesc" required></textarea>
+    <div [hidden]="tododesc.valid || tododesc.pristine"
+         class="alert alert-danger">
+      Description is required
+    </div>
   </div>
 
   <button type="submit" [disabled]="!todoForm.form.valid" class="btn btn-success btn-block">Submit</button>
