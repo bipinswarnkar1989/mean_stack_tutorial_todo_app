@@ -11,7 +11,9 @@ import { TodoService } from '../todo.service';
 export class TodoListComponent implements OnInit {
   todos:any[] = [];
   todo:any = {};
+  todoToEdit:any = {};
   fetchingData:boolean = false;
+  apiMessage:string;
 
   constructor(private todoService:TodoService) { }
 
@@ -27,6 +29,29 @@ export class TodoListComponent implements OnInit {
                     .then(td => {
                       console.log(td);
                       this.todos.push(td.todo);
+                    })
+  }
+
+  showEditTodo(todo:any):void{
+    this.todoToEdit = todo;
+    //console.log(this.todoToEdit);
+  }
+
+  EditTodo(todo:any):void{
+    if(!todo){ return; }
+    todo.id = this.todoToEdit._id;
+    console.log("ID: "+todo.todoText);
+    console.log(todo);
+    this.todoService.updateTodo(todo)
+                    .then(td => {
+                      const updatedTodos = this.todos.map(t => {
+                        if(td.todo._id !== t._id){
+                          return t;
+                        }
+                        return { ...t, ...td.todo };
+                      })
+                      this.apiMessage = td.message;
+                      this.todos = updatedTodos;
                     })
   }
 
