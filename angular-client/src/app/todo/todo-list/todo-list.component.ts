@@ -34,14 +34,12 @@ export class TodoListComponent implements OnInit {
 
   showEditTodo(todo:any):void{
     this.todoToEdit = todo;
-    //console.log(this.todoToEdit);
+    this.apiMessage = "";
   }
 
   EditTodo(todo:any):void{
     if(!todo){ return; }
     todo.id = this.todoToEdit._id;
-    console.log("ID: "+todo.todoText);
-    console.log(todo);
     this.todoService.updateTodo(todo)
                     .then(td => {
                       const updatedTodos = this.todos.map(t => {
