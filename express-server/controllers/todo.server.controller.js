@@ -32,7 +32,7 @@ export const updateTodo = (req,res) => {
     return res.json({'success':false,'message':'Some Error','error':err});
     }
     console.log(todo);
-    return res.json({'success':true,'message':'Updated successfully',todo});
+    return res.json({'success':true,'message':'Todo Updated Successfully',todo});
   })
 }
 
@@ -56,6 +56,6 @@ export const deleteTodo = (req,res) => {
     return res.json({'success':false,'message':'Some Error'});
     }
 
-    return res.json({'success':true,'message':todo.todoText+' deleted successfully'});
+    return res.json({'success':true,'message':'Todo Deleted Successfully',todo});
   })
 }

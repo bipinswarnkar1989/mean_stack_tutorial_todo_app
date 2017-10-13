@@ -40,6 +40,14 @@ export class TodoService {
                .catch(this.handleData);
   }
 
+  deleteTodo(todo:any):Promise<any>{
+    return this.http
+               .delete(this.apiUrl + todo._id)
+               .toPromise()
+               .then(this.handleData)
+               .catch(this.handleError);
+  }
+
   private handleData(res: any) {
        let body = res.json();
        console.log(body); // for development purposes only

@@ -12,6 +12,7 @@ export class TodoListComponent implements OnInit {
   todos:any[] = [];
   todo:any = {};
   todoToEdit:any = {};
+  todoToDelete:any = {};
   fetchingData:boolean = false;
   apiMessage:string;
 
@@ -52,5 +53,20 @@ export class TodoListComponent implements OnInit {
                       this.todos = updatedTodos;
                     })
   }
+
+ showDeleteTodo(todo:any):void{
+   this.todoToDelete = todo;
+   this.apiMessage = "";
+ }
+
+ DeleteTodo(todo:any):void{
+   if(!todo){ return; }
+   this.todoService.deleteTodo(todo)
+                   .then(td => {
+                     const filteredTodos = this.todos.filter(t => t._id !== td.todo._id);
+                     this.apiMessage = td.message;
+                     this.todos = filteredTodos;
+                   })
+ }
 
 }
